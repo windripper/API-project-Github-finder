@@ -34,7 +34,6 @@ class UI {
 
     // Show alert message
     showAlert (message, className) {
-        // Clear alert message
         this.clearAlert();
 
         const div = document.createElement("div");
@@ -47,7 +46,7 @@ class UI {
 
         container.insertBefore(div, search);
 
-        // Timeout after 3 sec
+        // Clear after 3 sec
         setTimeout(() => {
             this.clearAlert();
         }, 3000)
@@ -56,7 +55,10 @@ class UI {
     // Clear alert message
     clearAlert () {
         const currentAlert = document.querySelector(".alert");
-        currentAlert.remove();
+
+        if (currentAlert) {
+            currentAlert.remove();
+        }
     }
 
     // Clear profile
